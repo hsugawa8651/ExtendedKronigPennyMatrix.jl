@@ -47,11 +47,6 @@ version = "0.26.3"
 deps = ["ArgTools", "LibCURL", "NetworkOptions"]
 uuid = "f43a241f-c20a-4ad4-852c-f6b1247861c6"
 
-[[ExtendedKronigPennyMatrix]]
-path = ".."
-uuid = "0edef5b7-0e89-49b4-9493-3bcd9a743ed9"
-version = "0.1.0"
-
 [[FixedPointNumbers]]
 deps = ["Statistics"]
 git-tree-sha1 = "335bfdceacc84c5cdf16aadc768aa5ddfc5383cc"
