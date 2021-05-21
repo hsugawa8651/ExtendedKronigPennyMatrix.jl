@@ -65,6 +65,8 @@ Draw dispersion curve by scanning `Ka` values between ``[-\pi, \pi]``.
 using PyPlot
 clf()
 begin
+   a = 1
+   xs=-a:a/100:2a
    plot(xs .- 1/2, pf.(xs), "k")  # Holizontally shift to centerize the potential well
    cm=get_cmap("tab10")
    for Ka in (-18:18)/18*π
