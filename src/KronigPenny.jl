@@ -12,7 +12,7 @@ Fields
 * `ρ` : barrier width in units of period ``a``,  ``\\rho = \\dfrac{b}{a}``, ``0 < \\rho < 1``
   * Note that a position ``x`` is expressed in units of ``a`` throughout this package.
 
-The constructor `KronigPennyPotential(v0, ρ)` confirms that the parameter `ρ` is inside ``[0, 1]``, otherwise throws an error.
+The constructor `KronigPennyPotential(v0, ρ)` confirms that `0 ≤ ρ ≤ 1`, otherwise throws an error.
 """
 mutable struct KronigPennyPotential <: Potential
    v0:: Real
