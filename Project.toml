@@ -4,13 +4,13 @@ authors = ["Hiroharu Sugawara <hsugawa@gmail.com>"]
 version = "0.1.0"
 
 [deps]
+LinearAlgebra = "37e2e46d-f89d-539d-b4ee-838fcccc9c8e"
 
 [compat]
 julia = "1.3"
 
 [extras]
 Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
-PyPlot = "d330b81b-6aea-500a-939a-2ce795aea3ee"
 
 [targets]
-test = ["Test", "PyPlot"]
+test = ["Test"]
