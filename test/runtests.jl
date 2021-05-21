@@ -1,6 +1,8 @@
+
 using ExtendedKronigPennyMatrix
 using Test
 
 @testset "ExtendedKronigPennyMatrix.jl" begin
-    # Write your tests here.
+   include("Alternates.jl")
+   # include("KronigPennyTest.jl")
 end
