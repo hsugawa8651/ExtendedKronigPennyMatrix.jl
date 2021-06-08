@@ -1,5 +1,10 @@
 # Usage
 
+```@setup session1
+using PyPlot
+clf()
+```
+
 Here is a sample REPL session to draw a dispersion relationship by using this package.
 
 First, define `KronigPennyPotential` by calling its constructor.
@@ -13,8 +18,6 @@ pot=KronigPennyPotential(v0, rho)
 
 Use `get_function` method to acquire potential function.
 ```@repl session1
-using PyPlot
-clf()
 begin
    pf = get_potential(pot)
    a = 1
