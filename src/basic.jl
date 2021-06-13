@@ -30,6 +30,46 @@ function Base.iterate(alt::Alternates, state::Int = 1)
    (nxt, state+1)
 end
 
+"""
+    get_E10
+
+calculates ``E_{1}^{(0)}``.
+* `a` : system length
+* `m` : electron mass
+
+```math
+E_{1}^{(0)} = \\dfrac{\\pi^2\\hbar^2}{2ma^2}
+```
+
+This function handles physical quantities with Unitful package.
+* If `a` is dimensionless, suppose that `a` is in `nm` unit.
+  * Otherwise, `a` must have a dimension of length `L`.
+
+* If `m` is dimensionless, suppose that `m` is an effective mass with respect to electron rest mass.
+  * Otherwise, `m` must have a dimension of mass `M`.
+
+* The resultant enegy value is repesented in `eV`.
+"""
+function get_E10(a; me=1)
+   a0 = if isa(a, Unitful.Length)
+      a
+   elseif  isa(a, Real)
+      a * 1u"nm"
+   else
+      throw(Unitful.DimensionError)
+   end
+
+   m0 = if isa(me, Unitful.Mass)
+      me
+   elseif  isa(me, Real)
+      me * 1u"me"
+   else
+      throw(Unitful.DimensionError)
+   end
+
+   e10 = pi^2*(1u"ħ")^2 / (2*m0*a0^2) |> u"eV"
+   return e10
+end
 
 """
     Potential
