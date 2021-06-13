@@ -38,17 +38,17 @@ julia&gt; evs=eigvals(model.hnm);
 
 julia&gt; evs[1:3]
 3-element Array{Float64,1}:
-  1.96806550581
-  7.582164159222207
- 11.500508757009115</code></pre><p>Modify the wavenumber <code>Ka</code> (multiplied by <code>a</code>), and update model by <code>update!</code> method.  The matrix, i.e., the field <code>hnm</code>, is also updated.</p><pre><code class="language-julia-repl">julia&gt; update!(model, Ka=pi/4);
+  1.96806550580877
+  7.582164159222716
+ 11.50050875701112</code></pre><p>Modify the wavenumber <code>Ka</code> (multiplied by <code>a</code>), and update model by <code>update!</code> method.  The matrix, i.e., the field <code>hnm</code>, is also updated.</p><pre><code class="language-julia-repl">julia&gt; update!(model, Ka=pi/4);
 
 julia&gt; evs=eigvals(model.hnm);
 
 julia&gt; evs[1:3]
 3-element Array{Float64,1}:
-  1.974713332983734
-  7.489452030967246
- 11.757860611313637</code></pre><p>Draw dispersion curve by scanning <code>Ka</code> values between <span>$[-\pi, \pi]$</span>.</p><pre><code class="language-julia-repl">julia&gt; using PyPlot
+  1.9747133329835165
+  7.489452030967459
+ 11.757860611311955</code></pre><p>Draw dispersion curve by scanning <code>Ka</code> values between <span>$[-\pi, \pi]$</span>.</p><pre><code class="language-julia-repl">julia&gt; using PyPlot
 
 julia&gt; clf()
 
@@ -69,4 +69,4 @@ julia&gt; begin
           xlabel(L&quot;$Ka / \pi$&quot;)
           ylabel(L&quot;Energy / $E_0$&quot;)
           title( L&quot;$\rho =$&quot;*string(rho))
-       end</code></pre><p><img src="../plot2.png" alt/></p></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../">« Home</a><a class="docs-footer-nextpage" href="../usageja/">使い方 »</a><div class="flexbox-break"></div><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> on <span class="colophon-date" title="Tuesday 8 June 2021 16:33">Tuesday 8 June 2021</span>. Using Julia version 1.5.4.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
+       end</code></pre><p><img src="../plot2.png" alt/></p></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../">« Home</a><a class="docs-footer-nextpage" href="../usageja/">使い方 »</a><div class="flexbox-break"></div><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> on <span class="colophon-date" title="Sunday 13 June 2021 08:34">Sunday 13 June 2021</span>. Using Julia version 1.5.4.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
