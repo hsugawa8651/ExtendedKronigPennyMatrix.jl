@@ -11,6 +11,12 @@ Alternates
 Base.iterate(::Alternates, state::Int = 1)
 ```
 
+### E10
+```@docs
+ExtendedKronigPennyMatrix.get_E10
+```
+
+
 ### Potential
 ```@docs
 ExtendedKronigPennyMatrix.Potential
