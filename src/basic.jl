@@ -31,22 +31,23 @@ function Base.iterate(alt::Alternates, state::Int = 1)
 end
 
 """
-    get_E10
+    get_E10(a; me=1)
 
-calculates ``E_{1}^{(0)}``.
-* `a` : system length
-* `m` : electron mass
+calculates the ground state energy ``E_{1}^{(0)}``.
 
 ```math
 E_{1}^{(0)} = \\dfrac{\\pi^2\\hbar^2}{2ma^2}
 ```
 
+* `a` : system length
+* `me` : electron mass
+
 This function handles physical quantities with Unitful package.
 * If `a` is dimensionless, suppose that `a` is in `nm` unit.
   * Otherwise, `a` must have a dimension of length `L`.
 
-* If `m` is dimensionless, suppose that `m` is an effective mass with respect to electron rest mass.
-  * Otherwise, `m` must have a dimension of mass `M`.
+* If `me` is dimensionless, suppose that `me` is an effective mass with respect to electron rest mass.
+  * Otherwise, `me` must have a dimension of mass `M`.
 
 * The resultant enegy value is repesented in `eV`.
 """

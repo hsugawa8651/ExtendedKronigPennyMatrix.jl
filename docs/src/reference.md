@@ -11,7 +11,7 @@ Alternates
 Base.iterate(::Alternates, state::Int = 1)
 ```
 
-### E10
+### E10 - the ground state energy
 ```@docs
 ExtendedKronigPennyMatrix.get_E10
 ```
