@@ -47,10 +47,6 @@ KronigPennyModel(::KronigPennyPotential, nmax, Ka)
 ```
 
 ```@docs
-update!(::KronigPennyModel; Ka=nothing)
-```
-
-```@docs
 ExtendedKronigPennyMatrix.constuctMatrix(::KronigPennyModel)
 ```
 

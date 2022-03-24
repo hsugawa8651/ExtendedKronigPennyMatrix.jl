@@ -11,8 +11,7 @@ include("basic.jl")
 export
    Alternates,
    get_E10,
-   get_potential,
-   update!
+   get_potential
 
 include("KronigPenny.jl")
 

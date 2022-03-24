@@ -90,23 +90,6 @@ end
 
 
 """
-    update!(model_lem::KronigPennyModel; Ka=nothing)
-
-updates Kronnig-Penny model.
-
-* Optional parameters
-  * `Ka` : wavenumber multiplied by `a`, period
-"""
-function update!(model_lem::KronigPennyModel; Ka=nothing)
-   if !isnothing(Ka)
-      model_lem.Ka=Ka
-   end
-   constuctMatrix(model_lem)
-   model_lem
-end
-
-
-"""
     constuctMatrix(model_lem::KronigPennyModel)
 
 computes and fills Hamiltonian matrix fields `hnm` in `model_lem`.

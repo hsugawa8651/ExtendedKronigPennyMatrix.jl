@@ -99,8 +99,6 @@ is an abstraction of model including
 
 A subtype of model is expected to possess following methods:
 
-* `update!(<:Model, ...)`
-  * updates parameters in model.
 """
 abstract type Model
 end
