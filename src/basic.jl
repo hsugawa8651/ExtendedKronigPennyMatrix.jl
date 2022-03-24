@@ -118,11 +118,6 @@ is a constructor of Kronig-Penny model, and defines other fields: `qnum`, `nmax`
 * Mandantory parameters:
   * `pot` : potential
   * `Ka` : wavenumber multiplied by `a`, period
-  * `nmax` : maximum of quantum numbers
-
-* Mandantory parameters:
-  * `potential`
-  * `Ka` : wavenumber multiplied by `a`, period
 
 * Optional parameters: 
   * `nmax` : maximum of quantum numbers
