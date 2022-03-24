@@ -87,20 +87,51 @@ abstract type Potential
 end
 
 """
-    Model
+    struct Model{P<:Potential}
 
-is an abstraction of model including
-* `potential` <: Potential
-* `nmax`: maximum of quantum number
-* `mmax`: size of Hailtonian matrix
-* `Ka` : wavenumber multiplied by `a`, period
-* `qnum` <: Alternates
-* and other parameters depending on specific potential
+is an abstraction of model including following fields:
+  * `potential` : concrete Potential
+  * `Ka` : wavenumber multiplied by `a`, period
+  * `nmax` : maximum of quantum numbers
+  * `mmax` : size of Hamiltonian matrix
+  * `qnum` : iterator of quantum numbers
+  * `hnm` : hamiltonian matrix
 
-A subtype of model is expected to possess following methods:
-
-* `update!(<:Model, ...)`
-  * updates parameters in model.
+A concrete subtype of model is expected to possess following methods:
+  * `constuctMatrix(model::Model{P})`
 """
-abstract type Model
+struct Model{P<:Potential}
+   potential::P
+   Ka::Float64
+   nmax::Int64  # maximum of quantum numbers
+   mmax::Int64  # size of Hamiltonian
+   qnum::Alternates
+   hnm::Matrix
+end
+
+
+"""
+    function Model(pot::Potential,Ka::Float64,nmax::Int64=60)
+
+is a constructor of Kronig-Penny model, and defines other fields: `qnum`, `nmax`, and `hnm`
+
+* Mandantory parameters:
+  * `pot` : potential
+  * `Ka` : wavenumber multiplied by `a`, period
+  * `nmax` : maximum of quantum numbers
+
+* Mandantory parameters:
+  * `potential`
+  * `Ka` : wavenumber multiplied by `a`, period
+
+* Optional parameters: 
+  * `nmax` : maximum of quantum numbers
+"""
+function Model(pot::Potential,Ka::Float64,nmax::Int64=60)
+   qnum=Alternates(nmax)
+   mmax=length(qnum)
+   hnm=zeros(Float64,(mmax,mmax))
+   model=Model(pot,Ka,nmax,mmax,qnum,hnm)
+   constuctMatrix(model)
+   model
 end

@@ -11,13 +11,14 @@ include("basic.jl")
 export
    Alternates,
    get_E10,
-   get_potential,
-   update!
+   get_potential
+export
+   Model
 
 include("KronigPenny.jl")
 
 export
-   KronigPennyPotential, KronigPennyModel,
+   KronigPennyPotential, 
    constructMatrix
 
 end

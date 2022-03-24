@@ -2,6 +2,7 @@
 using ExtendedKronigPennyMatrix
 using LinearAlgebra
 using PyPlot
+pygui(false)
 
 function plot_KP(v0, rho)
    clf()
@@ -13,12 +14,8 @@ function plot_KP(v0, rho)
    xs=-2a:a/100:3a
    plot(xs, pf.(xs), "k")
 
-   nmax=60
-   Ka=0
-   model=KronigPennyModel(pot, nmax, Ka)
-
    for Ka in (-18:18)/18*π
-      update!(model, Ka=Ka)
+      model=Model(pot, Ka)
       ev = eigvals(model.hnm)
       for i in 1:5
          plot(Ka/ π, ev[i], ".", color=cm(i-1))

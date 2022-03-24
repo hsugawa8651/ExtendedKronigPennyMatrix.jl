@@ -35,12 +35,11 @@ end
 ![](plot1.png)
 
 
-次に、`KronigPennyModel` オブジェクトを作成します。
+次に、`Model` オブジェクトを作成します。
 
 ```@repl session1
-nmax=60 # maximum of quantum numbers; 
-Ka=0 # wavenumber multiplied by a;
-model=KronigPennyModel(pot, nmax, Ka)
+Ka=0.0 # wavenumber multiplied by a;
+model=Model(pot, Ka)
 ```
 
 このオブジェクトの `hnm` フィールドに、ハミルトニアン行列が計算されました。
@@ -61,14 +60,6 @@ evs=eigvals(model.hnm);
 evs[1:3]
 ```
 
-波数（と周期`a`の積）`Ka`を変えて、`update!`メソッドでモデル`model`を更新します。
-ハミルトニアン行列（フィールド `hnm`）も更新されます。
-```@repl session1
-update!(model, Ka=pi/4);
-evs=eigvals(model.hnm);
-evs[1:3]
-```
-
 波数（と周期`a`の積）`Ka` を ``[-\pi, \pi]`` の範囲で走査して、分散関係を描きます。
 
 ```@repl session1
@@ -80,7 +71,7 @@ begin
    plot(xs .- 1/2, pf.(xs), "k")  # Holizontally shift to centerize the potential well
    cm=get_cmap("tab10")
    for Ka in (-18:18)/18*π
-      update!(model, Ka=Ka)
+      model=Model(pot, Ka)
       ev = eigvals(model.hnm)
       for i in 1:5
          plot(Ka/ π, ev[i], ".", color=cm(i-1))

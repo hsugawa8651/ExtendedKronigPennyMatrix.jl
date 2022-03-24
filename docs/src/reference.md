@@ -16,7 +16,6 @@ Base.iterate(::Alternates, state::Int = 1)
 ExtendedKronigPennyMatrix.get_E10
 ```
 
-
 ### Potential
 ```@docs
 ExtendedKronigPennyMatrix.Potential
@@ -25,6 +24,10 @@ ExtendedKronigPennyMatrix.Potential
 ### Model
 ```@docs
 ExtendedKronigPennyMatrix.Model
+```
+
+```@docs
+ExtendedKronigPennyMatrix.Model(pot::ExtendedKronigPennyMatrix.Potential,Ka::Float64,nmax::Int64=60)
 ```
 
 
@@ -39,20 +42,9 @@ get_potential(::KronigPennyPotential)
 ```
 
 ```@docs
-KronigPennyModel
+ExtendedKronigPennyMatrix.constuctMatrix(::Model{KronigPennyPotential})
 ```
 
-```@docs
-KronigPennyModel(::KronigPennyPotential, nmax, Ka)
-```
-
-```@docs
-update!(::KronigPennyModel; Ka=nothing)
-```
-
-```@docs
-ExtendedKronigPennyMatrix.constuctMatrix(::KronigPennyModel)
-```
 
 ## Alphabetical Index
 
