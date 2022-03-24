@@ -56,13 +56,6 @@ evs=eigvals(model.hnm);
 evs[1:3]
 ```
 
-Modify the wavenumber `Ka` (multiplied by `a`), and update model by `update!` method.  The matrix, i.e., the field `hnm`, is also updated.
-```@repl session1
-update!(model, Ka=pi/4);
-evs=eigvals(model.hnm);
-evs[1:3]
-```
-
 Draw dispersion curve by scanning `Ka` values between ``[-\pi, \pi]``.
 ```@repl session1
 using PyPlot
@@ -73,7 +66,7 @@ begin
    plot(xs .- 1/2, pf.(xs), "k")  # Holizontally shift to centerize the potential well
    cm=get_cmap("tab10")
    for Ka in (-18:18)/18*π
-      update!(model, Ka=Ka)
+      model=KronigPennyModel(pot, nmax, Ka)
       ev = eigvals(model.hnm)
       for i in 1:5
          plot(Ka/ π, ev[i], ".", color=cm(i-1))
