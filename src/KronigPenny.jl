@@ -1,15 +1,13 @@
 # KronigPenny
 
 """
-    mutable struct KronigPennyPotential <: Potential
-
-    KronigPennyPotential(v0, ρ) # Default constructor
+    mutabke struct KronigPennyPotential(v0, ρ) # Default constructor
 
 holds parameters of Kronig-Penny potential.
 
 Fields
 * `v0` : potential height in units of ``E_{1}^{(0)}``
-* `ρ` : barrier width in units of period ``a``,  ``\\rho = \\dfrac{b}{a}``, ``0 < \\rho < 1``
+* `ρ` : barrier width in units of period ``a``,  where ``0 < \\rho = \\dfrac{b}{a} < 1``
   * Note that a position ``x`` is expressed in units of ``a`` throughout this package.
 
 The constructor `KronigPennyPotential(v0, ρ)` confirms that `0 ≤ ρ ≤ 1`, otherwise throws an error.
@@ -47,52 +45,9 @@ end
 
 
 """
-    mutable struct KronigPennyModel <: Model
+    constuctMatrix(model::Model{KronigPennyPotential})
 
-holds parameters of Kronig-Penny model.
-
-* Fields given to the constructor:
-  * `potential`
-  * `nmax`
-  * `Ka` : wavenumber multiplied by `a`, period
-* Fields calculated by constructor:
-  * `mmax` : size of Hamiltonian matrix
-  * `qnum` : iterator of quantum numbers
-* Fields calculated by constructor and `update!` methods:
-  * `hnm` : hamiltonian matrix
-"""
-mutable struct KronigPennyModel <: Model
-   potential::KronigPennyPotential
-   nmax::Int64  # maximum of quantum numbers
-   mmax::Int64  # size of Hamiltonian
-   Ka::Float64
-   qnum::Alternates
-   hnm::Matrix
-end
-
-"""
-    KronigPennyModel(::KronigPennyPotential, nmax, Ka)
-
-is a constructor of Kronig-Penny model, and defines other fields: `qnum`, `nmax`, and `hnm`
-* Mandantory parameters:
-  * `pot` : potential
-  * `nmax` : maximum of quantum numbers
-  * `Ka` : wavenumber multiplied by `a`, period
-"""
-function KronigPennyModel(pot::KronigPennyPotential, nmax, Ka)
-   qnum=Alternates(nmax)
-   mmax=length(qnum)
-   hnm=zeros(Float64,(mmax,mmax))
-   model_lem=KronigPennyModel(pot,nmax,mmax,Ka,qnum,hnm)
-   constuctMatrix(model_lem)
-   model_lem
-end
-
-
-"""
-    constuctMatrix(model_lem::KronigPennyModel)
-
-computes and fills Hamiltonian matrix fields `hnm` in `model_lem`.
+computes and fills Hamiltonian matrix fields `hnm` in `model`.
 
 ```math
 h_{nm} = \\begin{cases} 
@@ -104,11 +59,11 @@ v_{0}
  \\text{for}\\; n \\neq m\\;\\text{(off-diagonal elements)}\\end{cases}
 ```
 """
-function constuctMatrix(model_lem::KronigPennyModel)
-   qnum=model_lem.qnum
-   hnm=model_lem.hnm
-   Ka=model_lem.Ka
-   potential=model_lem.potential
+function constuctMatrix(model::Model{KronigPennyPotential})
+   qnum=model.qnum
+   hnm=model.hnm
+   Ka=model.Ka
+   potential=model.potential
    v0=potential.v0
    ρ=potential.ρ
    

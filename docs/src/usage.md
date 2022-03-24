@@ -34,11 +34,10 @@ end
 ![](plot1.png)
 
 
-Define `KronigPennyModel` by calling its constructor.
+Define `Model` by calling its constructor.
 ```@repl session1
-nmax=60 # maximum of quantum numbers; 
-Ka=0 # wavenumber multiplied by a;
-model=KronigPennyModel(pot, nmax, Ka)
+Ka=0.0 # wavenumber multiplied by a;
+model=Model(pot, Ka)
 ```
 
 The field `hnm` of model contains Hamiltonian matrix.
@@ -66,7 +65,7 @@ begin
    plot(xs .- 1/2, pf.(xs), "k")  # Holizontally shift to centerize the potential well
    cm=get_cmap("tab10")
    for Ka in (-18:18)/18*π
-      model=KronigPennyModel(pot, nmax, Ka)
+      model=Model(pot, Ka)
       ev = eigvals(model.hnm)
       for i in 1:5
          plot(Ka/ π, ev[i], ".", color=cm(i-1))
