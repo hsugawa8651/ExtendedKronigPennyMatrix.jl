@@ -1,26 +1,26 @@
 # KronigPenny
 
 """
-    mutabke struct KronigPennyPotential(v0, ρ) # Default constructor
+    mutabke struct FiniteSquareWell(v0, ρ) # Default constructor
 
-holds parameters of Kronig-Penny potential.
+holds parameters of finite square well potential.
 
 Fields
 * `v0` : potential height in units of ``E_{1}^{(0)}``
 * `ρ` : barrier width in units of period ``a``,  where ``0 < \\rho = \\dfrac{b}{a} < 1``
   * Note that a position ``x`` is expressed in units of ``a`` throughout this package.
 
-The constructor `KronigPennyPotential(v0, ρ)` confirms that `0 ≤ ρ ≤ 1`, otherwise throws an error.
+The constructor `FiniteSquareWell(v0, ρ)` confirms that `0 ≤ ρ ≤ 1`, otherwise throws an error.
 """
-mutable struct KronigPennyPotential <: Potential
+mutable struct FiniteSquareWell <: Potential
    v0:: Real
    ρ:: Real # ρ = b/a
 
-   KronigPennyPotential(v0, ρ) = 0 ≤ ρ ≤ 1 ? new(v0,ρ) : error("ρ < 0 or 1 < ρ")
+   FiniteSquareWell(v0, ρ) = 0 ≤ ρ ≤ 1 ? new(v0,ρ) : error("ρ < 0 or 1 < ρ")
 end
 
 """
-    get_potential(::KronigPennyPotential)
+    get_potential(::FiniteSquareWell)
 
 returns a function ``v`` to evaluate potential ``v(x)`` as a position ``x``, 
 such that:
@@ -38,16 +38,16 @@ v(x+a) &= v(x)
 ```
 * Note that a position ``x`` is expressed in units of ``a`` throughout this package.
 """
-function get_potential(pot::KronigPennyPotential)
+function get_potential(pot::FiniteSquareWell)
    return x -> (1-pot.ρ)/2 <= mod(x,1)< (1+pot.ρ)/2 ? 0 : pot.v0
 end
 
 
 
 """
-    constuctMatrix(model::Model{KronigPennyPotential})
+    constuctMatrix(model::Model{FiniteSquareWell})
 
-computes and fills Hamiltonian matrix fields `hnm` in `model`.
+computes and fills Hamiltonian matrix fields `hnm` in `model` with finite square well.
 
 ```math
 h_{nm} = \\begin{cases} 
@@ -59,7 +59,7 @@ v_{0}
  \\text{for}\\; n \\neq m\\;\\text{(off-diagonal elements)}\\end{cases}
 ```
 """
-function constuctMatrix(model::Model{KronigPennyPotential})
+function constuctMatrix(model::Model{FiniteSquareWell})
    qnum=model.qnum
    hnm=model.hnm
    Ka=model.Ka
