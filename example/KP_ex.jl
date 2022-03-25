@@ -8,7 +8,7 @@ function plot_KP(v0, rho)
    clf()
    cm=get_cmap("tab10")
 
-   pot=KronigPennyPotential(v0, rho)
+   pot=FiniteSquareWell(v0, rho)
    pf = get_potential(pot)
    a=1
    xs=-2a:a/100:3a

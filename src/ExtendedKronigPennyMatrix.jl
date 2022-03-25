@@ -15,10 +15,10 @@ export
 export
    Model
 
-include("KronigPenny.jl")
+include("FiniteSquareWell.jl")
 
 export
-   KronigPennyPotential, 
+   FiniteSquareWell, 
    constructMatrix
 
 end

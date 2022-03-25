@@ -3,16 +3,16 @@
 このパッケージを利用して、分散関係を描画する手順を紹介します。
 JuliaのREPLを用いた例です。
 
-最初に、`KronigPennyPotential` オブジェクトを作成します。
+最初に、`FiniteSquareWell` ポテンシャルを作成します。
 
 ```@repl session1
 using ExtendedKronigPennyMatrix
 v0=10; 
 rho=0.5 # b/a;
-pot=KronigPennyPotential(v0, rho)
+pot=FiniteSquareWell(v0, rho)
 ```
 
-`get_function`関数を用いて、ポテンシャル関数を入手します。
+ポテンシャル形状は `get_function`関数で得られます。
 
 ここでは `PyPlot` パッケージを用いて、プロットします。
 

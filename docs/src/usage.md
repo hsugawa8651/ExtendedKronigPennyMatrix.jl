@@ -7,16 +7,17 @@ clf()
 
 Here is a sample REPL session to draw a dispersion relationship by using this package.
 
-First, define `KronigPennyPotential` by calling its constructor.
+First, construct `FiniteSquareWell` potential object.
 
 ```@repl session1
 using ExtendedKronigPennyMatrix
 v0=10; 
 rho=0.5 # b/a;
-pot=KronigPennyPotential(v0, rho)
+pot=FiniteSquareWell(v0, rho)
 ```
 
 Use `get_function` method to acquire potential function.
+
 ```@repl session1
 begin
    pf = get_potential(pot)

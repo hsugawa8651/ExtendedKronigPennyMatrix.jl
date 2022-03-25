@@ -31,18 +31,18 @@ ExtendedKronigPennyMatrix.Model(pot::ExtendedKronigPennyMatrix.Potential,Ka::Flo
 ```
 
 
-## Kronig-Penny model
+## Finite Square Well
 
 ```@docs
-KronigPennyPotential
+FiniteSquareWell
 ```
 
 ```@docs
-get_potential(::KronigPennyPotential)
+get_potential(::FiniteSquareWell)
 ```
 
 ```@docs
-ExtendedKronigPennyMatrix.constuctMatrix(::Model{KronigPennyPotential})
+ExtendedKronigPennyMatrix.constuctMatrix(::Model{FiniteSquareWell})
 ```
 
 
