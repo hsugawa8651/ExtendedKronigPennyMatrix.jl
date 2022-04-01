@@ -12,7 +12,7 @@ Fields
 
 The constructor `FiniteSquareWell(v0, ρ)` confirms that `0 ≤ ρ ≤ 1`, otherwise throws an error.
 """
-mutable struct FiniteSquareWell <: Potential
+struct FiniteSquareWell <: Potential
    v0:: Real
    ρ:: Real # ρ = b/a
 
