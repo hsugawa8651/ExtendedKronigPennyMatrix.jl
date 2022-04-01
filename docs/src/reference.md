@@ -46,6 +46,21 @@ ExtendedKronigPennyMatrix.constuctMatrix(::Model{FiniteSquareWell})
 ```
 
 
+## Simple Harmonic Oscillator
+
+```@docs
+SimpleHarmonicOscillator
+```
+
+```@docs
+get_potential(::SimpleHarmonicOscillator)
+```
+
+```@docs
+ExtendedKronigPennyMatrix.constuctMatrix(::Model{SimpleHarmonicOscillator})
+```
+
+
 ## Alphabetical Index
 
 ```@index

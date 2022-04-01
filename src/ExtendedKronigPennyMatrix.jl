@@ -16,9 +16,11 @@ export
    Model
 
 include("FiniteSquareWell.jl")
+include("SimpleHarmonicOscillator.jl")
 
 export
    FiniteSquareWell, 
+   SimpleHarmonicOscillator,
    constructMatrix
 
 end
