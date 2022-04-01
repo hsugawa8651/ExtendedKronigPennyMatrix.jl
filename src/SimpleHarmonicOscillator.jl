@@ -1,7 +1,7 @@
 # Simple Harmonic Oscillator
 
 """
-    mutabke struct SimpleHarmonicOscillator(v0) # Default constructor
+    struct SimpleHarmonicOscillator(v0) # Default constructor
 
 holds parameters of finite square well potential.
 
