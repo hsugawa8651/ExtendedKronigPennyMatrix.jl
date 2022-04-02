@@ -41,10 +41,10 @@ computes and fills Hamiltonian matrix fields `hnm` in `model` with finite square
 
 ```math
 h_{nm} = \\begin{cases} 
-\\left(2n + \\dfrac{Ka}{\\pi}\\right)^{2} + \\dfrac{\\pi^2}{48} v_{0}^{2} &
+\\left(2n + \\dfrac{Ka}{\\pi}\\right)^{2} + v_{0}^{2} \\dfrac{\\pi^2}{48}  &
 \\text{for}\\; n = m\\;\\text{(diagonal elements)} \\\\
-\\dfrac{(-1)^{m-n}}{(m-n)^{2}} 
 \\dfrac{v_{0}^2}{8}
+\\dfrac{(-1)^{m-n}}{(m-n)^{2}} 
  & 
  \\text{for}\\; n \\neq m\\;\\text{(off-diagonal elements)}\\end{cases}
 ```
@@ -63,15 +63,15 @@ function constuctMatrix(model::Model{SimpleHarmonicOscillator})
    end
 
    for (i,m) in enumerate(qnum)
-      hnm[i,i] = (2m+Ka/π)^2 + pi^2 / 48.0*v0^2
+      hnm[i,i] = (2m+Ka/π)^2 + v0^2 * pi^2 / 48
    end
 
    for (i,m) in enumerate(qnum)
       for (j,n) in Iterators.take(enumerate(qnum), i-1)
-         hnm[i,j] = v0^2/8.0 * (-1)^(m-n) / (m-n)^2
+         hnm[i,j] = v0^2/8 * (-1)^(m-n) / (m-n)^2
       end
       for (j,n) in Iterators.drop(enumerate(qnum), i)
-         hnm[i,j] = v0^2/8.0 * (-1)^(m-n) / (m-n)^2
+         hnm[i,j] = v0^2/8 * (-1)^(m-n) / (m-n)^2
       end
    end
 end

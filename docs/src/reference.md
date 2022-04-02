@@ -61,6 +61,21 @@ ExtendedKronigPennyMatrix.constuctMatrix(::Model{SimpleHarmonicOscillator})
 ```
 
 
+## Inverted Harmonic Oscillator
+
+```@docs
+InvertedHarmonicOscillator
+```
+
+```@docs
+get_potential(::InvertedHarmonicOscillator)
+```
+
+```@docs
+ExtendedKronigPennyMatrix.constuctMatrix(::Model{InvertedHarmonicOscillator})
+```
+
+
 ## Alphabetical Index
 
 ```@index
