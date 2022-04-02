@@ -1,7 +1,7 @@
 # Inverted Harmonic Oscillator
 
 """
-    struct InvertedHarmonicOscillator(v0) # Default constructor
+    struct InvertedHarmonicOscillator(v0)
 
 holds parameters of finite square well potential.
 

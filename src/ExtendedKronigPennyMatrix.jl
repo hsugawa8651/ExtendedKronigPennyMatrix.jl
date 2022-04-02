@@ -18,11 +18,13 @@ export
 include("FiniteSquareWell.jl")
 include("SimpleHarmonicOscillator.jl")
 include("InvertedHarmonicOscillator.jl")
+include("LinearWell.jl")
 
 export
    FiniteSquareWell, 
    SimpleHarmonicOscillator,
    InvertedHarmonicOscillator,
+   LinearWell,
    constructMatrix
 
 end

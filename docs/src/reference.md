@@ -76,6 +76,21 @@ ExtendedKronigPennyMatrix.constuctMatrix(::Model{InvertedHarmonicOscillator})
 ```
 
 
+
+## LinearWell
+
+```@docs
+LinearWell
+```
+
+```@docs
+get_potential(::LinearWell)
+```
+
+```@docs
+ExtendedKronigPennyMatrix.constuctMatrix(::Model{LinearWell})
+```
+
 ## Alphabetical Index
 
 ```@index
