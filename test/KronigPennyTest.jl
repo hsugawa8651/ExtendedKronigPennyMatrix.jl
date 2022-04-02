@@ -6,7 +6,7 @@
          "Pavelich_Fig6.png", "Pavelich_Fig7.png" ]
       ENV["MPLBACKEND"]="agg" # no GUI
       using PyPlot
-      include("../example/KP_ex.jl")
+      include("../example/ex1_FiniteSquareWell.jl")
       using CRC32c
       for filename in filenames
          @test open(crc32c, filename) == open(crc32c, joinpath("example", filename))

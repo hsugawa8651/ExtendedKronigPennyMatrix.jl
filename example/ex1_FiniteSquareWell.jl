@@ -25,7 +25,7 @@ function plot_KP(v0, rho)
    ylim(-2,32)
    xlabel(L"$Ka / \pi$")
    ylabel(L"Energy / $E_0$")
-   title( L"$\rho =$"*string(rho))
+   title( L"$v_{0} =$"*string(v0)*", "*L"$\rho =$"*string(rho))
 end
 
 function main()
