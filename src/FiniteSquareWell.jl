@@ -1,7 +1,7 @@
 # KronigPenny
 
 """
-    struct FiniteSquareWell(v0, ρ) # Default constructor
+    struct FiniteSquareWell(v0, ρ)
 
 holds parameters of finite square well potential.
 

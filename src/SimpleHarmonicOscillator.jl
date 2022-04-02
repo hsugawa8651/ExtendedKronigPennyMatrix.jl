@@ -1,7 +1,7 @@
 # Simple Harmonic Oscillator
 
 """
-    struct SimpleHarmonicOscillator(v0) # Default constructor
+    struct SimpleHarmonicOscillator(v0)
 
 holds parameters of finite square well potential.
 
