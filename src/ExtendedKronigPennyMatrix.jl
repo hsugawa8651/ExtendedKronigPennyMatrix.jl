@@ -1,9 +1,6 @@
-
-__precompile__(true)
+module ExtendedKronigPennyMatrix
 
 using LinearAlgebra
-
-module ExtendedKronigPennyMatrix
 using Unitful
 
 include("basic.jl")
