@@ -2,6 +2,7 @@
 
 ```@setup session1
 using PyPlot
+using LaTeXStrings
 clf()
 ```
 
@@ -59,6 +60,7 @@ evs[1:3]
 Draw dispersion curve by scanning `Ka` values between ``[-\pi, \pi]``.
 ```@repl session1
 using PyPlot
+using LaTeXStrings
 clf()
 begin
    a = 1
