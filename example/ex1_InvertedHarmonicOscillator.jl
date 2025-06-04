@@ -2,6 +2,7 @@
 using ExtendedKronigPennyMatrix
 using LinearAlgebra
 using PyPlot
+using LaTeXStrings
 pygui(false)
 
 function plot_IHO(v0)

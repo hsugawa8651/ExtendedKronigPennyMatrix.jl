@@ -18,6 +18,7 @@ pot=FiniteSquareWell(v0, rho)
 
 ```@repl session1
 using PyPlot
+using LaTeXStrings
 clf()
 begin
    pf = get_potential(pot)
@@ -64,6 +65,7 @@ evs[1:3]
 
 ```@repl session1
 using PyPlot
+using LaTeXStrings
 clf()
 begin
    a = 1
