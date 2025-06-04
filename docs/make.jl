@@ -24,5 +24,5 @@ makedocs(;
 )
 
 deploydocs(;
-    repo="github.com/hsugawa8651/ExtendedKronigPennyMatrix.jl",
-)
+    repo="github.com/hsugawa8651/ExtendedKronigPennyMatrix.jl.git",
+    push_preview=true)
