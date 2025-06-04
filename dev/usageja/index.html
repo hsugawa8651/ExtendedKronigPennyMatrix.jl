@@ -16,7 +16,36 @@
  -0.0     -1.06103   3.1831   -0.0      21.0</code></pre><p>Juliaの <a href="https://docs.julialang.org/en/v1/stdlib/LinearAlgebra/#LinearAlgebra.eigvals"><code>LinearAlgebra.eigvals</code></a> メソッドを用いて、エネルギー固有値を計算します。 詳しくは、Juliaドキュメントの <a href="https://docs.julialang.org/en/v1/stdlib/LinearAlgebra/"><code>LinearAlgebra</code></a> 標準ライブラリを参照してください。</p><pre><code class="language-julia-repl hljs" style="display:block;">julia&gt; using LinearAlgebra</code><code class="nohighlight hljs ansi" style="display:block;"></code><br/><code class="language-julia-repl hljs" style="display:block;">julia&gt; evs=eigvals(model.hnm);</code><code class="nohighlight hljs ansi" style="display:block;"></code><br/><code class="language-julia-repl hljs" style="display:block;">julia&gt; evs[1:3]</code><code class="nohighlight hljs ansi" style="display:block;">3-element Array{Float64,1}:
   1.968065505811152
   7.582164159222251
- 11.500508757011424</code></pre><p>波数（と周期<code>a</code>の積）<code>Ka</code> を <span>$[-\pi, \pi]$</span> の範囲で走査して、分散関係を描きます。</p><pre><code class="language-julia-repl hljs" style="display:block;">julia&gt; using PyPlot</code><code class="nohighlight hljs ansi" style="display:block;"></code><br/><code class="language-julia-repl hljs" style="display:block;">julia&gt; using LaTeXStrings</code><code class="nohighlight hljs ansi" style="display:block;"></code><br/><code class="language-julia-repl hljs" style="display:block;">julia&gt; clf()</code><code class="nohighlight hljs ansi" style="display:block;">ERROR: ArgumentError: hasproperty of NULL PyObject</code><br/><code class="language-julia-repl hljs" style="display:block;">julia&gt; begin
+ 11.500508757011424</code></pre><p>波数（と周期<code>a</code>の積）<code>Ka</code> を <span>$[-\pi, \pi]$</span> の範囲で走査して、分散関係を描きます。</p><pre><code class="language-julia-repl hljs" style="display:block;">julia&gt; using Conda</code><code class="nohighlight hljs ansi" style="display:block;"></code><br/><code class="language-julia-repl hljs" style="display:block;">julia&gt; Conda.add(&quot;matplotlib&quot;)</code><code class="nohighlight hljs ansi" style="display:block;">[ Info: Running `conda install -q -y matplotlib` in root environment
+Channels:
+ - conda-forge
+Platform: linux-64
+Collecting package metadata (repodata.json): ...working... done
+Solving environment: ...working... done
+
+# All requested packages already installed.</code><br/><code class="language-julia-repl hljs" style="display:block;">julia&gt; using PyCall</code><code class="nohighlight hljs ansi" style="display:block;"></code><br/><code class="language-julia-repl hljs" style="display:block;">julia&gt; pyplot = pyimport(&quot;matplotlib.pyplot&quot;)</code><code class="nohighlight hljs ansi" style="display:block;">ERROR: PyError (PyImport_ImportModule
+
+The Python package matplotlib.pyplot could not be imported by pyimport. Usually this means
+that you did not install matplotlib.pyplot in the Python version being used by PyCall.
+
+PyCall is currently configured to use the Julia-specific Python distribution
+installed by the Conda.jl package.  To install the matplotlib.pyplot module, you can
+use `pyimport_conda(&quot;matplotlib.pyplot&quot;, PKG)`, where PKG is the Anaconda
+package that contains the module matplotlib.pyplot, or alternatively you can use the
+Conda package directly (via `using Conda` followed by `Conda.add` etcetera).
+
+Alternatively, if you want to use a different Python distribution on your
+system, such as a system-wide Python (as opposed to the Julia-specific Python),
+you can re-configure PyCall with that Python.   As explained in the PyCall
+documentation, set ENV[&quot;PYTHON&quot;] to the path/name of the python executable
+you want to use, run Pkg.build(&quot;PyCall&quot;), and re-launch Julia.
+
+) &lt;class &#39;ImportError&#39;&gt;
+ImportError(&quot;/opt/hostedtoolcache/julia/1.5.4/x64/bin/../lib/julia/libstdc++.so.6: version `GLIBCXX_3.4.29&#39; not found (required by /home/runner/.julia/conda/3/x86_64/lib/python3.12/site-packages/matplotlib/_c_internal_utils.cpython-312-x86_64-linux-gnu.so)&quot;)
+  File &quot;/home/runner/.julia/conda/3/x86_64/lib/python3.12/site-packages/matplotlib/__init__.py&quot;, line 161, in &lt;module&gt;
+    from . import _api, _version, cbook, _docstring, rcsetup
+  File &quot;/home/runner/.julia/conda/3/x86_64/lib/python3.12/site-packages/matplotlib/cbook.py&quot;, line 32, in &lt;module&gt;
+    from matplotlib import _api, _c_internal_utils</code><br/><code class="language-julia-repl hljs" style="display:block;">julia&gt; using PyPlot</code><code class="nohighlight hljs ansi" style="display:block;"></code><br/><code class="language-julia-repl hljs" style="display:block;">julia&gt; using LaTeXStrings</code><code class="nohighlight hljs ansi" style="display:block;"></code><br/><code class="language-julia-repl hljs" style="display:block;">julia&gt; clf()</code><code class="nohighlight hljs ansi" style="display:block;">ERROR: ArgumentError: hasproperty of NULL PyObject</code><br/><code class="language-julia-repl hljs" style="display:block;">julia&gt; begin
           a = 1
           xs=-a:a/100:2a
           plot(xs .- 1/2, pf.(xs), &quot;k&quot;)  # Holizontally shift to centerize the potential well
@@ -33,4 +62,4 @@
           xlabel(L&quot;$Ka / \pi$&quot;)
           ylabel(L&quot;Energy / $E_0$&quot;)
           title( L&quot;$\rho =$&quot;*string(rho))
-       end</code><code class="nohighlight hljs ansi" style="display:block;">ERROR: ArgumentError: hasproperty of NULL PyObject</code></pre><p><img src="plot2.png" alt="plot2"/></p></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../usage/">« Usage</a><a class="docs-footer-nextpage" href="../reference/">Reference »</a><div class="flexbox-break"></div><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> version 0.27.25 on <span class="colophon-date" title="Wednesday 4 June 2025 06:47">Wednesday 4 June 2025</span>. Using Julia version 1.5.4.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
+       end</code><code class="nohighlight hljs ansi" style="display:block;">ERROR: ArgumentError: hasproperty of NULL PyObject</code></pre><p><img src="plot2.png" alt="plot2"/></p></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../usage/">« Usage</a><a class="docs-footer-nextpage" href="../reference/">Reference »</a><div class="flexbox-break"></div><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> version 0.27.25 on <span class="colophon-date" title="Wednesday 4 June 2025 07:40">Wednesday 4 June 2025</span>. Using Julia version 1.5.4.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
