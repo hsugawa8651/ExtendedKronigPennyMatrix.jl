@@ -1,6 +1,10 @@
 # Usage
 
 ```@setup session1
+using Conda
+Conda.add("matplotlib")
+using PyCall
+pyplot = pyimport("matplotlib.pyplot")
 using PyPlot
 using LaTeXStrings
 clf()

@@ -64,6 +64,10 @@ evs[1:3]
 波数（と周期`a`の積）`Ka` を ``[-\pi, \pi]`` の範囲で走査して、分散関係を描きます。
 
 ```@repl session1
+using Conda
+Conda.add("matplotlib")
+using PyCall
+pyplot = pyimport("matplotlib.pyplot")
 using PyPlot
 using LaTeXStrings
 clf()
