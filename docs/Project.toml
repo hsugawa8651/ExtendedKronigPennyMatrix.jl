@@ -6,4 +6,5 @@ PyPlot = "d330b81b-6aea-500a-939a-2ce795aea3ee"
 
 [compat]
 Documenter = "0.27"
+LaTeXStrings = "1"
 PyPlot = "2.9"
