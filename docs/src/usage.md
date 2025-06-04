@@ -32,7 +32,7 @@ begin
 end
 ```
 
-![](plot1.png)
+![plot1](plot1.png)
 
 
 Define `Model` by calling its constructor.
@@ -81,6 +81,6 @@ begin
 end
 ```
 
-![](plot2.png)
+![plot2](plot2.png)
 
 
