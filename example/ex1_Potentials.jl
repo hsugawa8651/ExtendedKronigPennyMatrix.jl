@@ -1,7 +1,7 @@
 
 using ExtendedKronigPennyMatrix
 using LinearAlgebra
-using PyPlot
+using PythonPlot: pyplot as plt
 using LaTeXStrings
 pygui(false)
 
@@ -18,19 +18,21 @@ function plot_potential()
    ]
    npotentials=length(potentials)
 
-   fig, axs = subplots(npotentials,1, sharex=true, tight_layout=true)
-   @show axs
-   for (cnt, desc) in enumerate(potentials)
+   fig, axs = plt.subplots(npotentials,1, sharex=true, tight_layout=true)
+   # @show axs
+   for (ax, desc) in zip(axs, potentials)
+      # cntp=cnt-1 # Index for Python array
       pot, ttl = desc
       pf = get_potential(pot)
       a=1
       xs=-2a:a/100:2a
-      axs[cnt].plot(xs, pf.(xs))
-      axs[cnt].set_title(ttl, y=-0.5)
-      axs[cnt].set_xlabel("")
-      axs[cnt].set_xticks([])
-      axs[cnt].set_ylabel("")
-      # axs[cnt].axis("off")
+      ax.plot(xs, pf.(xs))
+      ax.set_title(ttl, y=-0.5)
+      ax.set_xlabel("")
+      # axs[cntp].set_xticks([])
+      ax.get_xaxis().set_visible(false)
+      ax.set_ylabel("")
+      # ax.axis("off")
    end
    fig.savefig("Pavelich_Fig5.png")
 end

@@ -1,11 +1,9 @@
 # Usage
 
 ```@setup session1
-using Conda
-Conda.add("matplotlib")
-using PyCall
-pyplot = pyimport("matplotlib.pyplot")
-using PyPlot
+import Pkg
+Pkg.add("PythonPlot")
+using PythonPlot
 using LaTeXStrings
 clf()
 ```
@@ -63,7 +61,7 @@ evs[1:3]
 
 Draw dispersion curve by scanning `Ka` values between ``[-\pi, \pi]``.
 ```@repl session1
-using PyPlot
+using PythonPlot
 using LaTeXStrings
 clf()
 begin
