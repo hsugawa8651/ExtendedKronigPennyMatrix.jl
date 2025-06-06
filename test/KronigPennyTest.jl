@@ -5,7 +5,7 @@
          "Pavelich_Fig4a.png", "Pavelich_Fig4b.png",
          "Pavelich_Fig6.png", "Pavelich_Fig7.png" ]
       ENV["MPLBACKEND"]="agg" # no GUI
-      using PyPlot
+      using PythonPlot
       using LaTeXStrings
       include("../example/ex1_FiniteSquareWell.jl")
       using CRC32c

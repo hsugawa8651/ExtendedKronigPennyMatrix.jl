@@ -1,7 +1,7 @@
 
 using ExtendedKronigPennyMatrix
 using LinearAlgebra
-using PyPlot
+using PythonPlot
 using LaTeXStrings
 pygui(false)
 

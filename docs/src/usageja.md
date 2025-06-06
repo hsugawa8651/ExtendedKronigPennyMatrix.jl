@@ -14,10 +14,10 @@ pot=FiniteSquareWell(v0, rho)
 
 ポテンシャル形状は `get_function`関数で得られます。
 
-ここでは `PyPlot` パッケージを用いて、プロットします。
+ここでは `PythonPlot` パッケージを用いて、プロットします。
 
 ```@repl session1
-using PyPlot
+using PythonPlot
 using LaTeXStrings
 clf()
 begin
@@ -64,11 +64,7 @@ evs[1:3]
 波数（と周期`a`の積）`Ka` を ``[-\pi, \pi]`` の範囲で走査して、分散関係を描きます。
 
 ```@repl session1
-using Conda
-Conda.add("matplotlib")
-using PyCall
-pyplot = pyimport("matplotlib.pyplot")
-using PyPlot
+using PythonPlot
 using LaTeXStrings
 clf()
 begin
